@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#if the first argument is "help" this outputs the arguments this script takes
+#this is easier than having to come read the code, if you forget what args this script takes.
+#the ${1,,} lowercases our first argument. So you can type help, Help, HELP, or anyother combo and it will still work
+if [ "${1,,}" == "help" ]
+then
+	echo "[Inputfile] [artist] [album]"
+fi
+
+#here I create a variable, that is the name of the input filename, with the filetype ending stripped off
+#e.g. "superDopeVideo.mp4" creates a variable called "superDopeVideo"
+outputFileName="${1%.*}"
+
+#here's the real meat. passes our input file, and metadata tags to ffmpeg.
+ffmpeg -i "$1" -metadata Artist="$2" -metadata Album="$3" -metadata Title="$outputFileName" "$outputFileName.mp3"
+
+#that previous line assumes you want the output file to be named the same as the input.
+#using this line will let you input a separate name for the output file, as an additional argument
+Effmpeg -i "$1" -metadata Artist="$2" -metadata Album="$3" -metadata Title="$4" "$4.mp3"
+
+
+#I use this script primarily for converting youtube videos to mp3, so I can store them on my mp3 player
+#This is why I use the metadata tags, it lets my mp3 sort the files automatically.
+#Previously I'd open my mp3's in audacity to tag them, but that takes forever.
+#I mainly use this for rap battles, but you may want it for podcasts or something
+#here is another sample line, that more closely resembles how I use this script.
+#It makes the title of the song on the mp3 player, and the output filename, the same as the input file
+#it hardcodes the artist, and places the output file into a predetermined folder.
+#it uses the example folder ~/Podcasts/mp3s, and that folder must exist before running this line.
+#by doing this we only have to supply 2 arguments, the input file, and the album name.
+#This way I could go into my mp3 player, find all of my podcasts under the artist "Podcasts"
+#And I'd set the album to be the title of the podcast. So, every episode I download of "Still Untitled" would be in one album, and "Lunduke Show" would be another album.
+#Finally, here's the line that does that.
+
+#ffmpeg -i "$1" -metadata Artist="Podcasts" -metadata Album="$2" -metadata Title="$outputFileName" ~/Podcasts/mp3s/"$outputFileName.mp3"
