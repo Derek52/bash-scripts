@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#simply starts xboxdrv to let me use my ps3 controller
+sudo xboxdrv --silent --detach-kernel-driver

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#this script simply copies some of my config files, into a folder I have in my dev folder, that I post to github.
+#this lets me easily sync any changes I make to my config files.
+
+cp ~/.config/i3/config ~/Dev/bash/linux-setup-scripts/config/i3-gaps-config
+
+cp ~/.config/ranger/rc.conf ~/Dev/bash/linux-setup-scripts/config/ranger/rc.conf
+
+cp ~/.vimrc ~/Dev/bash/linux-setup-scripts/config/vimrc
+
+cp ~/.vim/colors/* ~/Dev/bash/linux-setup-scripts/config/vimColorSchemes/
+

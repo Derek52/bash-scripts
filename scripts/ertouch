@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#touches .html.erb files in whatever directory you pass to the script.
+#it can touch any number of files at once, and can be a time saver for me.
+#call it with this format
+# ertouch [directoryOfOutputFile] [filename1] [filename2] [any other number of files]
+#I generally call it using my current directory as the output directory. E.g.
+# ertouch . index show new
+#will output index.html.erb, show.html.erb, and new.html.erb in the current directory
+
+filepath="$1"
+shift
+
+for var in "$@"
+do
+	touch "$filepath/$var.html.erb"
+done

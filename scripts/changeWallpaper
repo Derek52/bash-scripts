@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#This is the proper way to do this.
+
+cd ~/.wallpapers
+
+if [ -z "$1" ] #if run with no arguments pick any image from within the wallpapers directory
+then
+	feh --bg-fill --recursive --randomize *
+else #search for a directory, inside the wallpapers folder, pass that folder, to feh, to randomly select the wallpaper.
+	find ./ -type d -name "$1" -print0 | xargs -0 feh --bg-fill --recursive --randomize
+fi
