@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#this script uses ebook-convert which is a command-line utitlity that is installed when you install Calibre.
+#This loop can take a variety of ebook formats and convert the files to plaintext txts.
+
+for var in "$@"
+do
+	ebook-convert "$var" "${var%.txt}.txt"
+done
