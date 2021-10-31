@@ -1,0 +1,3 @@
+#!/bin/bash
+#Uses xmodmap to remap Caps Lock to Escape and vice-versa. Very useful for Vim users
+xmodmap ../config/.Xmodmap
