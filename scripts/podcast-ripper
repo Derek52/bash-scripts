@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#uses FFMPEG to take an input media file, and output an mp3 with tagged metadata.
+#Example usage
+#podcast-ripper inputFile.mp4 podcastShowTitle startTimeOfInput endTimeOfInput podcastEpisodeTitle
+
+ffmpeg -i "$1" -map 0:a:0 -metadata album="Podcasts" -metadata artist="$2" -ss "$3" -to "$4" "$5.mp3"
+
